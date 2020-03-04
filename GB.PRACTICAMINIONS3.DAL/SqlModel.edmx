@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BCR_PRACTICAMINIONS3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Libros">
+          <Key>
+            <PropertyRef Name="IdLibro" />
+          </Key>
+          <Property Name="IdLibro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Precio" Type="money" />
+          <Property Name="LinkAmazon" Type="varchar(max)" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="FV_Calculo_Comision_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="piMonto_Venta" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FV_Comision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="piId_Salario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PR_ActualizarLibro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piIdLibro" Type="int" Mode="In" />
+          <Parameter Name="pvCodigoLibro" Type="varchar" Mode="In" />
+          <Parameter Name="pvNombre" Type="varchar" Mode="In" />
+          <Parameter Name="pvAutor" Type="varchar" Mode="In" />
+          <Parameter Name="pmPrecio" Type="money" Mode="In" />
+          <Parameter Name="pvLinkAmazon" Type="varchar(max)" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Agregar_Comision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piMonto_Min" Type="int" Mode="In" />
+          <Parameter Name="piMonto_Max" Type="int" Mode="In" />
+          <Parameter Name="pdComision" Type="float" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Agregar_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo_Empleado" Type="int" Mode="In" />
+          <Parameter Name="pvNombre" Type="varchar" Mode="In" />
+          <Parameter Name="pvApellido" Type="varchar" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Agregar_Puesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pvNombre_Puesto" Type="varchar" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Agregar_Salario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo_Salario" Type="int" Mode="In" />
+          <Parameter Name="piPuesto_Id" Type="int" Mode="In" />
+          <Parameter Name="piEmpleado_Id" Type="int" Mode="In" />
+          <Parameter Name="pmSalario" Type="money" Mode="In" />
+          <Parameter Name="pmMonto_Venta" Type="money" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Eliminar_Comision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piId_Comision" Type="int" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Eliminar_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo_Empleado" Type="int" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Eliminar_Puesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piId_Puesto" Type="int" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Eliminar_Salario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piId_Puesto" Type="int" Mode="In" />
+          <Parameter Name="piEmpleado_Id" Type="int" Mode="In" />
+          <Parameter Name="piId_Salario" Type="int" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_EliminarLibro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piIdLibro" Type="int" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Insertar_Sinonimos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pvSinonimoUno" Type="varchar" Mode="In" />
+          <Parameter Name="pvSinonimoDos" Type="varchar" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_InsertarLibros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigoLibro" Type="varchar" Mode="In" />
+          <Parameter Name="pvNombre" Type="varchar" Mode="In" />
+          <Parameter Name="pvAutor" Type="varchar" Mode="In" />
+          <Parameter Name="pvPrecio" Type="money" Mode="In" />
+          <Parameter Name="pvLink" Type="varchar(max)" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Modificar_Comision" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piId_Comision" Type="int" Mode="In" />
+          <Parameter Name="piMonto_Min" Type="int" Mode="In" />
+          <Parameter Name="piMonto_Max" Type="int" Mode="In" />
+          <Parameter Name="pdComision" Type="float" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Modificar_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo_Id" Type="int" Mode="In" />
+          <Parameter Name="piCodigo_Empleado" Type="int" Mode="In" />
+          <Parameter Name="pvNombre" Type="varchar" Mode="In" />
+          <Parameter Name="pvApellido" Type="varchar" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Modificar_Puesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piId_Puesto" Type="int" Mode="In" />
+          <Parameter Name="pvNombre_Puesto" Type="varchar" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Modificar_Salario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo_Salario" Type="int" Mode="In" />
+          <Parameter Name="piId_Puesto" Type="int" Mode="In" />
+          <Parameter Name="piId_Salario" Type="int" Mode="In" />
+          <Parameter Name="pmSalario" Type="money" Mode="In" />
+          <Parameter Name="pmMonto_Venta" Type="money" Mode="In" />
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Mostra_Comisiones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Mostrar_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Mostrar_Empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Mostrar_Empleados_Sin_Salarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Mostrar_Puesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Mostrar_Salario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Mostrar_Sinonimos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Mostrar_Vistas_Salarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_MostrarLibros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PR_Totales_Planilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="PR_Vista_Planilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="piCodigo" Type="int" Mode="InOut" />
+          <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BCR_PRACTICAMINIONS3ModelStoreContainer">
+          <EntitySet Name="Libros" EntityType="Self.Libros" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BCR_PRACTICAMINIONS3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Libros">
+          <Key>
+            <PropertyRef Name="IdLibro" />
+          </Key>
+          <Property Name="IdLibro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Autor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LinkAmazon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="BCR_PRACTICAMINIONS3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Libros" EntityType="Self.Libros" />
+          <FunctionImport Name="PR_EliminarLibro">
+            <Parameter Name="piIdLibro" Mode="In" Type="Int32" />
+            <Parameter Name="piCodigo" Mode="InOut" Type="Int32" />
+            <Parameter Name="psMensaje" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_InsertarLibros">
+            <Parameter Name="piCodigoLibro" Mode="In" Type="String" />
+            <Parameter Name="pvNombre" Mode="In" Type="String" />
+            <Parameter Name="pvAutor" Mode="In" Type="String" />
+            <Parameter Name="pvPrecio" Mode="In" Type="Decimal" />
+            <Parameter Name="pvLink" Mode="In" Type="String" />
+            <Parameter Name="piCodigo" Mode="InOut" Type="Int32" />
+            <Parameter Name="psMensaje" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_MostrarLibros" ReturnType="Collection(BCR_PRACTICAMINIONS3Model.PR_MostrarLibros_Result)" />
+          <FunctionImport Name="PR_ActualizarLibro">
+            <Parameter Name="piIdLibro" Mode="In" Type="Int32" />
+            <Parameter Name="pvCodigoLibro" Mode="In" Type="String" />
+            <Parameter Name="pvNombre" Mode="In" Type="String" />
+            <Parameter Name="pvAutor" Mode="In" Type="String" />
+            <Parameter Name="pmPrecio" Mode="In" Type="Decimal" />
+            <Parameter Name="pvLinkAmazon" Mode="In" Type="String" />
+            <Parameter Name="piCodigo" Mode="InOut" Type="Int32" />
+            <Parameter Name="psMensaje" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PR_MostrarLibros_Result">
+          <Property Type="Int32" Name="IdLibro" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="30" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="String" Name="LinkAmazon" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PR_Insertar_Sinonimos_Result">
+          <Property Type="Int32" Name="Id_Sinonimos" Nullable="false" />
+          <Property Type="String" Name="Sinonimo1" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Sinonimo2" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostra_Comisiones_Result">
+          <Property Type="Int32" Name="Id_Comision" Nullable="false" />
+          <Property Type="Int32" Name="Monto_Venta_Min" Nullable="false" />
+          <Property Type="Double" Name="Comision" Nullable="true" />
+          <Property Type="Int32" Name="Monto_Venta_Max" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Empleado_Result">
+          <Property Type="Int32" Name="Id_Empleado" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Codigo_Empleado" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Empleados_Result">
+          <Property Type="Int32" Name="Id_Empleado" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Codigo_Empleado" Nullable="false" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Empleados_Sin_Salarios_Result">
+          <Property Type="Int32" Name="Id_Empleado" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Puesto_Result">
+          <Property Type="Int32" Name="Id_Puesto" Nullable="false" />
+          <Property Type="String" Name="Nombre_Puesto" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Salario_Result">
+          <Property Type="Int32" Name="Id_Salario" Nullable="false" />
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="Puesto_Id" Nullable="false" />
+          <Property Type="Int32" Name="Empleado_Id" Nullable="false" />
+          <Property Type="Decimal" Name="Salario" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Monto_Vendido" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Sinonimos_Result">
+          <Property Type="String" Name="Sinonimo1" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Sinonimo2" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="PR_Mostrar_Vistas_Salarios_Result">
+          <Property Type="Int32" Name="Id_Salario" Nullable="false" />
+          <Property Type="Int32" Name="Codigo" Nullable="false" />
+          <Property Type="Int32" Name="Id_Puesto" Nullable="false" />
+          <Property Type="String" Name="Nombre_Puesto" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Id_Empleado" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Salario" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="Monto_Vendido" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="PR_Totales_Planilla_Result">
+          <Property Type="Decimal" Name="SALARIO_SEMANAL" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="COMISION" Nullable="true" />
+          <Property Type="Decimal" Name="DEDUCCIONES" Nullable="true" Precision="22" Scale="6" />
+          <Property Type="Decimal" Name="SALARIO_NETO" Nullable="true" Precision="38" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="PR_Vista_Planilla_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="SALARIO_SEMANAL" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="COMISION" Nullable="true" />
+          <Property Type="Decimal" Name="DEDUCCIONES" Nullable="true" Precision="22" Scale="6" />
+          <Property Type="Decimal" Name="SALARIO_NETO" Nullable="true" Precision="20" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BCR_PRACTICAMINIONS3ModelStoreContainer" CdmEntityContainer="BCR_PRACTICAMINIONS3Entities">
+          <EntitySetMapping Name="Libros">
+            <EntityTypeMapping TypeName="BCR_PRACTICAMINIONS3Model.Libros">
+              <MappingFragment StoreEntitySet="Libros">
+                <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="LinkAmazon" ColumnName="LinkAmazon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PR_EliminarLibro" FunctionName="BCR_PRACTICAMINIONS3Model.Store.PR_EliminarLibro" />
+          <FunctionImportMapping FunctionImportName="PR_InsertarLibros" FunctionName="BCR_PRACTICAMINIONS3Model.Store.PR_InsertarLibros" />
+          <FunctionImportMapping FunctionImportName="PR_MostrarLibros" FunctionName="BCR_PRACTICAMINIONS3Model.Store.PR_MostrarLibros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BCR_PRACTICAMINIONS3Model.PR_MostrarLibros_Result">
+                <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="LinkAmazon" ColumnName="LinkAmazon" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_ActualizarLibro" FunctionName="BCR_PRACTICAMINIONS3Model.Store.PR_ActualizarLibro" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
