@@ -31,10 +31,5 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         {
             return Ok(bllLibro.eliminarLibro(libro));
         }
-        [HttpPut]
-        public IHttpActionResult actualizarLibro([FromBody]LibroEtl libro)
-        {
-            return Ok(bllLibro.actualizarLibro(libro));
-        }
     }
 }

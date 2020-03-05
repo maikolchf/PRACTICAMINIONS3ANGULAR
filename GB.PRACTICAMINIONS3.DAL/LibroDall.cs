@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GB.PRACTICAMINIONS3.DAL
 {
+    /// <summary>
+    /// Contiene todas las consultas que se realizan a la base de datos
+    /// </summary>
     public class LibroDall
     {
         /// <summary>
