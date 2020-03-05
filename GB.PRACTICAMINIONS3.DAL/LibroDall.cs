@@ -10,6 +10,16 @@ namespace GB.PRACTICAMINIONS3.DAL
 {
     public class LibroDall
     {
+        /// <summary>
+        /// Inserta el libro
+        /// </summary>
+        /// <autor>Michael chavarria</autor
+        /// <createDate>4/3/2020</createDate>
+        /// <ModifiedBy>Wittmann Moreno</ModifiedBy>
+        /// <MofificationDate>5/3/2020</MofificationDate>
+        /// <ModificationSummary>Devuelve un mensaje en caso que se produsca un error dentro de la base de datos y otro en caso de que ocurra desde la api</ModificationSummary>
+        /// <param name="libro"></param>
+        /// <returns>objeto mensaje con los detalles de la operacion</returns>
         public RespuestaEtl insertarLibro(LibroEtl libro)
         {
             RespuestaEtl respuesta = new RespuestaEtl();
@@ -32,8 +42,13 @@ namespace GB.PRACTICAMINIONS3.DAL
                             Codigo,
                             Mensaje
                         );
-                    if (resultado != null)
+                    if (Convert.ToInt32(Codigo.Value) != 0)
                     {
+                        respuesta.Codigo = Convert.ToInt32(Codigo.Value);
+                        respuesta.Mensaje = Mensaje.Value.ToString();
+                        respuesta.Estado = "error";
+                    }
+                    else {
                         respuesta.Codigo = Convert.ToInt32(Codigo.Value);
                         respuesta.Mensaje = Mensaje.Value.ToString();
                         respuesta.Estado = "success";
@@ -50,7 +65,10 @@ namespace GB.PRACTICAMINIONS3.DAL
 
             return respuesta;
         }
-
+        /// <summary>
+        /// Muestra la lista de libros
+        /// </summary>
+        /// <returns>Retorna el libro</returns>
         public RespuestaEtl mostraLibros()
         {
             RespuestaEtl respuesta = new RespuestaEtl();
@@ -59,8 +77,7 @@ namespace GB.PRACTICAMINIONS3.DAL
             {
                 using (BCR_PRACTICAMINIONS3Entities objDatos = new BCR_PRACTICAMINIONS3Entities())
                 {
-                    respuesta.ObjetoRespuesta = objDatos.PR_MostrarLibros().ToList();
-                   
+                    respuesta.ObjetoRespuesta = objDatos.PR_MostrarLibros().ToList();   
                 }               
             }
             catch (Exception ex)
@@ -71,7 +88,16 @@ namespace GB.PRACTICAMINIONS3.DAL
             }
             return respuesta;
         }
-
+        /// <summary>
+        /// Elimina el libro
+        /// </summary>
+        /// <autor>Michael chavarria</autor
+        /// <createDate>4/3/2020</createDate>
+        /// <ModifiedBy>Wittmann Moreno</ModifiedBy>
+        /// <MofificationDate>5/3/2020</MofificationDate>
+        /// <ModificationSummary>Devuelve un mensaje en caso que se produsca un error dentro de la base de datos y otro en caso de que ocurra desde la api</ModificationSummary>
+        /// <param name="libro"></param>
+        /// <returns>objeto mensaje con los detalles de la operacion</returns>
         public RespuestaEtl eliminarLibro(LibroEtl libro)
         {
             RespuestaEtl respuesta = new RespuestaEtl();
@@ -86,9 +112,13 @@ namespace GB.PRACTICAMINIONS3.DAL
                             Codigo,
                             Mensaje
                         );
-
-                    if (resultado != null)
+                    if (Convert.ToInt32(Codigo.Value) != 0)
                     {
+                        respuesta.Codigo = Convert.ToInt32(Codigo.Value);
+                        respuesta.Mensaje = Mensaje.Value.ToString();
+                        respuesta.Estado = "error";
+                    }
+                    else {
                         respuesta.Codigo = Convert.ToInt32(Codigo.Value);
                         respuesta.Mensaje = Mensaje.Value.ToString();
                         respuesta.Estado = "success";
@@ -103,7 +133,16 @@ namespace GB.PRACTICAMINIONS3.DAL
             }
             return respuesta;
         }
-
+        /// <summary>
+        /// Modifica el libro
+        /// </summary>
+        /// <autor>Michael chavarria</autor
+        /// <createDate>4/3/2020</createDate>
+        /// <ModifiedBy>Wittmann Moreno</ModifiedBy>
+        /// <MofificationDate>5/3/2020</MofificationDate>
+        /// <ModificationSummary>Devuelve un mensaje en caso que se produsca un error dentro de la base de datos y otro en caso de que ocurra desde la api</ModificationSummary>
+        /// <param name="libro"></param>
+        /// <returns>objeto mensaje con los detalles de la operacion</returns>
         public RespuestaEtl modificarLibro(LibroEtl libro)
         {
             RespuestaEtl respuesta = new RespuestaEtl();
@@ -122,10 +161,14 @@ namespace GB.PRACTICAMINIONS3.DAL
                             libro.LinkAmazon,
                             Codigo,
                             Mensaje
-                        );                    
-
-                    if (resultado != null)
+                        );
+                    if (Convert.ToInt32(Codigo.Value) != 0)
                     {
+                        respuesta.Codigo = Convert.ToInt32(Codigo.Value);
+                        respuesta.Mensaje = Mensaje.Value.ToString();
+                        respuesta.Estado = "error";
+                    }
+                    else {
                         respuesta.Codigo = Convert.ToInt32(Codigo.Value);
                         respuesta.Mensaje = Mensaje.Value.ToString();
                         respuesta.Estado = "success";
