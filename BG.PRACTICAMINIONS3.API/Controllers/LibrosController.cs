@@ -16,7 +16,7 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         [HttpPost]
         public IHttpActionResult agregarLibro([FromBody]LibroEtl libro)
         {
-            return Ok(bllLibro.insertarLibro(libro)); ;
+            return Ok(bllLibro.insertarLibro(libro)); 
         }
 
         [HttpGet]
