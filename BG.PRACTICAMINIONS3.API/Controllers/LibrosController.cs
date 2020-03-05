@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using GB.PRACTICAMINIONS3.ETL;
 using GB.PRACTICAMINIONS3.BLL;
-
+using System.Web.Http.Cors;
 
 namespace BG.PRACTICAMINIONS3.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LibrosController : ApiController
     {
         LibroBll bllLibro = new LibroBll();
