@@ -1,28 +1,40 @@
 import { __decorate } from "tslib";
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrudLibrosComponent } from './crud-libros/crud-libros.component';
-import { HeaderComponent } from './header/header.component';
+import { IndexComponent } from './index/index.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { BodyComponent } from './body/body.component';
+import { CrudLibrosComponent } from './crud-libros/crud-libros.component';
+import { DataApiService } from './Servicio/data-api.service';
+const rutas = [
+    { path: 'Libros', component: CrudLibrosComponent },
+    { path: '', component: IndexComponent, pathMatch: 'full' },
+    { path: '**', redirectTo: '/', pathMatch: 'full' }
+];
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     NgModule({
         declarations: [
             AppComponent,
-            CrudLibrosComponent,
-            HeaderComponent,
+            IndexComponent,
+            NavbarComponent,
             FooterComponent,
-            BodyComponent
+            CrudLibrosComponent
         ],
         imports: [
             BrowserModule,
-            AppRoutingModule
+            AppRoutingModule,
+            RouterModule.forRoot(rutas),
+            FormsModule,
+            HttpClientModule
         ],
-        providers: [],
+        providers: [DataApiService],
         bootstrap: [AppComponent]
     })
 ], AppModule);

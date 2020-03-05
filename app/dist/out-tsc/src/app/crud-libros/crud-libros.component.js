@@ -1,8 +1,16 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 let CrudLibrosComponent = class CrudLibrosComponent {
-    constructor() { }
+    constructor(data_api, location, router) {
+        this.data_api = data_api;
+        this.location = location;
+        this.router = router;
+    }
     ngOnInit() {
+        this.listarLibros();
+    }
+    listarLibros() {
+        this.data_api.mostrarLibros().subscribe((Respuesta) => (console.log(Respuesta)));
     }
 };
 CrudLibrosComponent = __decorate([
