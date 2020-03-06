@@ -8,6 +8,7 @@ import { Router, CanActivate } from '@angular/router';
 import { Pipe, PipeTransform } from '@angular/core';
 import { pipe } from 'rxjs';
 
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-crud-libros',
   templateUrl: './crud-libros.component.html',
@@ -19,11 +20,67 @@ export class CrudLibrosComponent implements OnInit {
   constructor( public data_api:DataApiService, private location:Location, private router:Router ) { }
   public Libro: LibroInterface;
   public Respuesta: RespuestaInterface;
-
+  
   ngOnInit(): void {
     this.listarLibros();
   }
 
+  guardarLibros(){
+    switch (this.Respuesta.Estado){
+      case 'success':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'success'
+        ) 
+        break; 
+      }
+      case 'error':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'error'
+        ) 
+        break; 
+      }
+      case 'warning':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'warning'
+        ) 
+        break; 
+      }
+    }
+  }
+  eliminarLibros(){
+    switch (this.Respuesta.Estado){
+      case 'success':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'success'
+        ) 
+        break; 
+      }
+      case 'error':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'error'
+        ) 
+        break; 
+      }
+      case 'warning':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'warning'
+        ) 
+        break; 
+      }
+    }
+  }
   listarLibros(){
 
     this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));

@@ -13,6 +13,7 @@ import { CrudLibrosComponent } from './crud-libros/crud-libros.component';
 import { DataApiService } from './Servicio/data-api.service';
 import { FormularioLibroComponent } from './formulario-libro/formulario-libro.component';
 import { FormularioBusquedaComponent } from './formulario-busqueda/formulario-busqueda.component';
+import Swal from 'sweetalert2'
 
 const rutas:Routes =[
   { path:'Libros', component: CrudLibrosComponent },
