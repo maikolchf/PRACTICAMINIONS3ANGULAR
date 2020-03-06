@@ -16,44 +16,49 @@ import Swal from 'sweetalert2'
 })
 
 export class CrudLibrosComponent implements OnInit {
-
-  constructor( public data_api:DataApiService, private location:Location, private router:Router ) { }
   public Libro: LibroInterface;
   public Respuesta: RespuestaInterface;
-  
+  public RespuestaMensaje: RespuestaInterface;
+  constructor( public data_api:DataApiService, private location:Location, private router:Router ) { 
+
+  }
+
   ngOnInit(): void {
     this.listarLibros();
+    this.RespuestaMensaje.Estado = '';
+    this.RespuestaMensaje.Mensaje = '';
   }
 
   registrarLibros(LibroForm:NgForm):void{
-    this.data_api.insertarLibro(LibroForm.value).subscribe(Libro => location.reload());
-
-    switch (this.Respuesta.Estado){
+    this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) => (this.RespuestaMensaje = Respuesta2));
+    console.log(this.RespuestaMensaje.Estado);
+    switch (this.RespuestaMensaje.Estado){
       case 'success':{
         Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
           'success'
         ) 
         break; 
       }
       case 'error':{
         Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
           'error'
         ) 
         break; 
       }
       case 'warning':{
         Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
           'warning'
         ) 
         break; 
       }
     }
+    this.listarLibros();
   }
 
  /* guardarLibros(){
