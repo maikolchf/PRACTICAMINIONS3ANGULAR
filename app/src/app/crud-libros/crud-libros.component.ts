@@ -25,7 +25,9 @@ export class CrudLibrosComponent implements OnInit {
     this.listarLibros();
   }
 
-  guardarLibros(){
+  registrarLibros(LibroForm:NgForm):void{
+    this.data_api.insertarLibro(LibroForm.value).subscribe(Libro => location.reload());
+
     switch (this.Respuesta.Estado){
       case 'success':{
         Swal.fire(
@@ -53,6 +55,36 @@ export class CrudLibrosComponent implements OnInit {
       }
     }
   }
+
+ /* guardarLibros(){
+    switch (this.Respuesta.Estado){
+      case 'success':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'success'
+        ) 
+        break; 
+      }
+      case 'error':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'error'
+        ) 
+        break; 
+      }
+      case 'warning':{
+        Swal.fire(
+          this.Respuesta.Mensaje,
+          String(this.Respuesta.ObjetoRespuesta),
+          'warning'
+        ) 
+        break; 
+      }
+    }
+  }*/
+  
   eliminarLibros(){
     switch (this.Respuesta.Estado){
       case 'success':{

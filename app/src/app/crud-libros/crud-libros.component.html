@@ -1,22 +1,31 @@
 <div class="formulario">
-    <form #LibroForm = "ngForm">
-        <div class="container">
-            <input type="text" id="txtIdLibro" name="txtIdLibro" class="d-none">
-            <div class="row mt-2">
-                <div class="col-md-4 col-sm-12">
-                    <label for="txtCodigoLibro">Codigo de libro</label>
-                    <input type="text" id="txtCodigoLibro" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." name="txtCodigoLibro" class="form-control" maxlength="20"  required>
-                    <label for="txtTituloLibro">Titulo del libro</label>
-                    <input type="text" id="txtTituloLibro" title="Titulo de libro" placeholder="Ingrese el titulo del libro..." name="txtTituloLibro" class="form-control" maxlength="20" required>
-                    <label for="txtAutorLibro">Autor del libro</label>
-                    <input type="text" id="txtAutorLibro" title="Autor del libro" placeholder="Ingrese el nombre del autor del libro..." name="txtAutorLibro" class="form-control" maxlength="20" required>
-                    <label for="txtPrecioLibro">Precio de libro</label>
-                    <input type="text" id="txtPrecioLibro" title="Precio de libro" placeholder="Ingrese precio del libro..." name="txtPrecioLibro" class="form-control" maxlength="20" required>
-                    <label for="txtLinkAmazon">Link amazon</label>
-                    <input type="text" id="txtLinkAmazon" title="Link de amazon" name="txtLinkAmazon" placeholder="Ingrese el link de amazon..." class="form-control" required>                    
-                    <button type="submit" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
-                </div>
-                <div class="col-md-8 col-sm-12">
+  <form #LibroForm = "ngForm" (ngSubmit)="registrarLibros(LibroForm)">
+    <div class="container">
+        <input type="text" id="txtIdLibro" name="txtIdLibro" class="d-none">
+        <div class="row mt-2">
+            <div class="col-md-4 col-sm-12">
+                <label for="txtCodigoLibro">Codigo de libro</label>
+                <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
+                class="form-control" maxlength="20"  required
+                [(ngModel)]="this.data_api.seleccionarLibro.Codigo">
+                <label for="txtTituloLibro">Titulo del libro</label>
+                <input type="text" id="Titulo" name="Titulo" title="Titulo de libro" placeholder="Ingrese el titulo del libro..." 
+                class="form-control" maxlength="20" required
+                [(ngModel)]="this.data_api.seleccionarLibro.Titulo">
+                <label for="txtAutorLibro">Autor del libro</label>
+                <input type="text" id="Autor" name="Autor" title="Autor del libro" placeholder="Ingrese el nombre del autor del libro..." 
+                class="form-control" maxlength="20" required
+                [(ngModel)]="this.data_api.seleccionarLibro.Autor">
+                <label for="txtPrecioLibro">Precio de libro</label>
+                <input type="text" id="Precio" name="Precio" title="Precio de libro" placeholder="Ingrese precio del libro..."
+                class="form-control" maxlength="20" required
+                 [(ngModel)]="this.data_api.seleccionarLibro.Precio">
+                <label for="txtLinkAmazon">Link amazon</label>
+                <input type="text" id="LinkAmazon" name="LinkAmazon" title="Link de amazon" placeholder="Ingrese el link de amazon..." 
+                class="form-control" required
+                [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon">                    
+                <button type="submit" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
+            </div>            <div class="col-md-8 col-sm-12">
                     <label for="">Busqueda</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
