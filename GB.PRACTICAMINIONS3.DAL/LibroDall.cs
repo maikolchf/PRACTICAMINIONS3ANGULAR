@@ -111,7 +111,7 @@ namespace GB.PRACTICAMINIONS3.DAL
                 using (BCR_PRACTICAMINIONS3Entities objDatos = new BCR_PRACTICAMINIONS3Entities())
                 {
                     var resultado = objDatos.PR_EliminarLibro(
-                            libro.IdLibro,
+                           Convert.ToInt32(libro.IdLibro),
                             Codigo,
                             Mensaje
                         );
@@ -156,7 +156,7 @@ namespace GB.PRACTICAMINIONS3.DAL
                 using (BCR_PRACTICAMINIONS3Entities objDatos = new BCR_PRACTICAMINIONS3Entities())
                 {
                     var resultado = objDatos.PR_ActualizarLibro(
-                            libro.IdLibro,
+                           Convert.ToInt32(libro.IdLibro),
                             libro.Codigo,
                             libro.Titulo,
                             libro.Autor,

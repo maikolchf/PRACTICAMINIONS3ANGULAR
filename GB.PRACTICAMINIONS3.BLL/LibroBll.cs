@@ -15,7 +15,7 @@ namespace GB.PRACTICAMINIONS3.BLL
         LibroDall dalLibro = new LibroDall();
         public RespuestaEtl insertarLibro(LibroEtl libro)
         {
-            if (string.IsNullOrEmpty(libro.IdLibro.ToString())) {
+            if (string.IsNullOrEmpty(libro.IdLibro)) {
                 if (string.IsNullOrEmpty(libro.Codigo) || string.IsNullOrEmpty(libro.Titulo)
                 || string.IsNullOrEmpty(libro.Precio.ToString()) || string.IsNullOrEmpty(libro.LinkAmazon) || string.IsNullOrEmpty(libro.Autor))
                 {

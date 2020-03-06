@@ -8,7 +8,17 @@ namespace GB.PRACTICAMINIONS3.ETL
 {
     public class LibroEtl
     {
-        public int IdLibro { get; set; }
+        public LibroEtl()
+        {
+            IdLibro = string.Empty;
+            Codigo = string.Empty;
+            Titulo = string.Empty;
+            Autor = string.Empty;
+            Precio =decimal.MinValue;
+            LinkAmazon = string.Empty;
+        }
+
+        public string IdLibro { get; set; }
         public  string Codigo { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
