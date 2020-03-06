@@ -265,6 +265,10 @@
       <Project>{1e29a9cb-c1b0-4d50-92d7-8f4fd04f67b1}</Project>
       <Name>GB.PRACTICAMINIONS3.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GB.PRACTICAMINIONS3.DAL\GB.PRACTICAMINIONS3.DAL.csproj">
+      <Project>{BFE8415D-4288-41B4-AB2E-333918ABA1A2}</Project>
+      <Name>GB.PRACTICAMINIONS3.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GB.PRACTICAMINIONS3.ETL\GB.PRACTICAMINIONS3.ETL.csproj">
       <Project>{e1bffc21-fe74-4269-a2f3-9822fcbede78}</Project>
       <Name>GB.PRACTICAMINIONS3.ETL</Name>

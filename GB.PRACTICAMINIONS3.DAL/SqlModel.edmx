@@ -13,8 +13,8 @@
           <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Autor" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Precio" Type="money" />
-          <Property Name="LinkAmazon" Type="varchar(max)" />
+          <Property Name="Precio" Type="money" Nullable="false" />
+          <Property Name="LinkAmazon" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="FV_Calculo_Comision_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
@@ -205,8 +205,8 @@
           <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Autor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="LinkAmazon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LinkAmazon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="BCR_PRACTICAMINIONS3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Libros" EntityType="Self.Libros" />

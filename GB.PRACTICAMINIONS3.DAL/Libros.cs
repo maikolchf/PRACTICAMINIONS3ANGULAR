@@ -18,7 +18,7 @@ namespace GB.PRACTICAMINIONS3.DAL
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Autor { get; set; }
-        public Nullable<decimal> Precio { get; set; }
+        public decimal Precio { get; set; }
         public string LinkAmazon { get; set; }
     }
 }

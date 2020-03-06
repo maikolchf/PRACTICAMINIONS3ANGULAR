@@ -16,7 +16,7 @@ namespace GB.PRACTICAMINIONS3.BLL
         LibroDall dalLibro = new LibroDall();
         public Array insertarLibro(LibroEtl libro)
         {
-            if (string.IsNullOrEmpty(libro.IdLibro)) {
+            if (libro.IdLibro.Equals(null)) {
                 if (string.IsNullOrEmpty(libro.Codigo) || string.IsNullOrEmpty(libro.Titulo)
                 || string.IsNullOrEmpty(libro.Precio.ToString()) || string.IsNullOrEmpty(libro.LinkAmazon) || string.IsNullOrEmpty(libro.Autor))
                 {
@@ -48,9 +48,9 @@ namespace GB.PRACTICAMINIONS3.BLL
             return mensajeArray;
         }
 
-        public RespuestaEtl mostrarLibros()
+        public List<LibroEtl> mostrarLibros()
         {
-            return dalLibro.mostraLibros();
+            return dalLibro.listarLibros();
         }
         public  Array eliminarLibro(LibroEtl libro)
         {
