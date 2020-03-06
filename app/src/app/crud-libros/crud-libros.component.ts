@@ -25,8 +25,6 @@ export class CrudLibrosComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarLibros();
-    this.RespuestaMensaje.Estado = '';
-    this.RespuestaMensaje.Mensaje = '';
   }
 
   registrarLibros(LibroForm:NgForm):void{

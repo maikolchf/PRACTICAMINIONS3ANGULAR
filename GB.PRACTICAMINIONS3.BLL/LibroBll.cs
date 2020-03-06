@@ -11,9 +11,10 @@ namespace GB.PRACTICAMINIONS3.BLL
 {
     public class LibroBll
     {
+        string[] mensajeArray = {"","",""};
         RespuestaEtl objMensaje = new RespuestaEtl();
         LibroDall dalLibro = new LibroDall();
-        public RespuestaEtl insertarLibro(LibroEtl libro)
+        public Array insertarLibro(LibroEtl libro)
         {
             if (string.IsNullOrEmpty(libro.IdLibro)) {
                 if (string.IsNullOrEmpty(libro.Codigo) || string.IsNullOrEmpty(libro.Titulo)
@@ -41,14 +42,17 @@ namespace GB.PRACTICAMINIONS3.BLL
                     objMensaje = dalLibro.modificarLibro(libro);
                 }
             }
-            return objMensaje;
+            mensajeArray[0] = objMensaje.Estado;
+            mensajeArray[1] = objMensaje.Codigo.ToString();
+            mensajeArray[2] = objMensaje.Mensaje;
+            return mensajeArray;
         }
 
         public RespuestaEtl mostrarLibros()
         {
             return dalLibro.mostraLibros();
         }
-        public  RespuestaEtl eliminarLibro(LibroEtl libro)
+        public  Array eliminarLibro(LibroEtl libro)
         {
             if (string.IsNullOrEmpty(libro.IdLibro.ToString()))
             {
@@ -60,7 +64,10 @@ namespace GB.PRACTICAMINIONS3.BLL
             {
                 objMensaje = dalLibro.eliminarLibro(libro);
             }
-            return objMensaje;
+            mensajeArray[0] = objMensaje.Estado;
+            mensajeArray[1] = objMensaje.Codigo.ToString();
+            mensajeArray[2] = objMensaje.Mensaje;
+            return mensajeArray;
         }
     }
 }
