@@ -10,7 +10,7 @@ namespace GB.PRACTICAMINIONS3.ETL
     {
         public LibroEtl()
         {
-            IdLibro = string.Empty;
+            IdLibro = null;
             Codigo = string.Empty;
             Titulo = string.Empty;
             Autor = string.Empty;
@@ -18,7 +18,7 @@ namespace GB.PRACTICAMINIONS3.ETL
             LinkAmazon = string.Empty;
         }
 
-        public string IdLibro { get; set; }
+        public int? IdLibro { get; set; }
         public  string Codigo { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }

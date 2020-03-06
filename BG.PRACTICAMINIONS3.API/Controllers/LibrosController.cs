@@ -12,7 +12,7 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LibrosController : ApiController
-    {
+    {       
         LibroBll bllLibro = new LibroBll();
         [HttpPost]
         public IHttpActionResult agregarLibro([FromBody]LibroEtl libro)
@@ -21,11 +21,9 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         }
 
         [HttpGet]
-        public RespuestaEtl mostrarLibros()
+        public List<LibroEtl> mostrarLibros()
         {
-            RespuestaEtl respuesta = new RespuestaEtl();
-            respuesta = bllLibro.mostrarLibros();
-            return respuesta;
+           return bllLibro.mostrarLibros();             
         }
         [HttpDelete]
         public IHttpActionResult eliminarLibro([FromBody]LibroEtl libro)

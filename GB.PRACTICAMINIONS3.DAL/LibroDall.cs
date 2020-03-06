@@ -73,6 +73,25 @@ namespace GB.PRACTICAMINIONS3.DAL
         /// Muestra la lista de libros
         /// </summary>
         /// <returns>Retorna el libro</returns>
+        /// 
+        public List<LibroEtl> listarLibros()
+        {
+            using (BCR_PRACTICAMINIONS3Entities objDatos = new BCR_PRACTICAMINIONS3Entities())
+            {
+                List<LibroEtl> libro = (from q in objDatos.Libros
+                                        select new LibroEtl
+                                        {
+                                            IdLibro = q.IdLibro,
+                                            Codigo = q.Codigo,
+                                            Titulo = q.Nombre,
+                                            Autor = q.Autor,
+                                            Precio = q.Precio,
+                                            LinkAmazon = q.LinkAmazon
+                                        }).ToList();
+                return libro;
+            }
+        }
+
         public RespuestaEtl mostraLibros()
         {
             RespuestaEtl respuesta = new RespuestaEtl();
@@ -81,8 +100,9 @@ namespace GB.PRACTICAMINIONS3.DAL
             {
                 using (BCR_PRACTICAMINIONS3Entities objDatos = new BCR_PRACTICAMINIONS3Entities())
                 {
-                    respuesta.ObjetoRespuesta = objDatos.PR_MostrarLibros().ToList();   
-                }               
+                    respuesta.ObjetoRespuesta = objDatos.PR_MostrarLibros().ToList();                   
+                }
+
             }
             catch (Exception ex)
             {
@@ -90,6 +110,7 @@ namespace GB.PRACTICAMINIONS3.DAL
                 respuesta.Codigo = -1;
                 respuesta.Estado = "error";
             }
+
             return respuesta;
         }
         /// <summary>
