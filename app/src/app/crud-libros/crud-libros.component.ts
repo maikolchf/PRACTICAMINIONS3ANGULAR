@@ -73,13 +73,10 @@ export class CrudLibrosComponent implements OnInit {
     }).then((result) => {
       
       if (result.value) {
-        this.data_api.eliminarLibro(id).subscribe()
-                             
-        
-                     
+                
       }        
     });       
-    /*
+    
     switch (this.Respuesta.Estado){
       case 'success':{
         Swal.fire(
@@ -106,11 +103,7 @@ export class CrudLibrosComponent implements OnInit {
         break; 
       }
     }
-    */
-  }
-  
-  SeleccionarLibro(libro:LibroInterface){
-    this.data_api.seleccionarLibro = Object.assign({},libro)
+    
   }
   listarLibros(){
 

@@ -71,10 +71,9 @@
                             <td style="text-align: center;">{{libro.Titulo}}</td>
                             <td style="text-align: center;">{{libro.Autor}}</td>
                             <td style="text-align: center;">{{libro.Precio}}</td>                            
-                            <td>
-                                <button style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-info mb-1" title="Ver detalles de libro"><i class="far fa-eye center"></i></button>
+                            <td>                                
                                 
-                                <button style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-warning mb-1" title="Editar libro"><i class="far fa-edit"></i></button>
+                                <button data-toggle="modal" data-target="#exampleModal" style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-warning mb-1" title="Editar libro"><i class="far fa-edit"></i></button>
                                 
                                 <a (click)="eliminarLibros(libro.IdLibro)" style="width: 100%;" type="button" id="btnEliminar" name="btnEliminar" class="btn btn-danger" title="Eliminar libro"><i class="far fa-trash-alt"></i></a>
                             </td>
