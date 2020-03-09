@@ -11,10 +11,53 @@
                     <div class="card-body">
                       <h5 class="card-title">{{libro.Titulo}}</h5>
                       <p class="card-text">{{libro.Autor}}</p>
-                      <a href="" class="btn btn-primary">Comprar</a>
+                      <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="SeleccionarLibro(libro)">Comprar</a>
                     </div>
                 </div>
             </div>
         </div>        
     </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Libro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row mx-auto">
+            <div class="col-md-5">
+                <img class="card-img-top" src="https://dummyimage.com/400x400/000/fff" alt="Card image cap">
+            </div>  
+            <div class="col-md-6">
+                <div class="row">
+                    <h3><b>Codigo de libro : {{this.data_api.seleccionarLibro.Codigo}} </b></h3>
+                </div>
+                <div class="row">
+                    <h4>Titulo de libro: {{this.data_api.seleccionarLibro.Titulo}}</h4>
+                </div>
+                <div class="row"><h5>Autor de libro: {{this.data_api.seleccionarLibro.Autor}}</h5></div>
+            </div></div>
+          <div class="row mx-auto">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sapiente molestias dicta beatae recusandae inventore sint in optio similique, voluptatem tenetur labore fugit quam, corporis soluta id rem debitis adipisci.</p>
+          </div>
+          <div class="row">
+              <button type="button" class="btn btn-lg btn-success mx-auto">Comprar</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
