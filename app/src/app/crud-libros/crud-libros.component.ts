@@ -26,7 +26,7 @@ export class CrudLibrosComponent implements OnInit {
   }
 
   registrarLibros(LibroForm:NgForm):void{
-    this.data_api.insertarLibro(LibroForm.value).subscribe(Libro => location.reload());
+    this.data_api.insertarLibro(LibroForm.value).subscribe(Libro => location);
 
     switch (this.Respuesta.Estado){
       case 'success':{

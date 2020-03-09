@@ -4,6 +4,12 @@ $(document).ready(function() {
   $("#alertAutor").hide();
   $("#alertPrecio").hide();
   $("#alertLink").hide();
+  $("#validationDefaultUsername").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#librosTabla tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
 function valideKey(evt)
 {
