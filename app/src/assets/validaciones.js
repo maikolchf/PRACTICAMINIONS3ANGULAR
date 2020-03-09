@@ -72,18 +72,6 @@ function validarLinkLibro(evt){
   }
 }
 
-function cargarDatosModal(idLibro,codigoLibro,tituloLibro,autorLibro,precioLibro,linkLibro){
- /* var inputCodigo = document.getElementById("txtEditCodigo");
-  var inputTitulo = document.getElementById("txtEditTitulo");
-  var inputAutor = document.getElementById("txtEditAutor");
-  var inputPrecio = document.getElementById("txtEditPrecio");
-  var inputLink = document.getElementById("txtEditLink");
-  inputCodigo.value = codigoLibro;
-  inputTitulo.value = tituloLibro;
-  inputAutor.value = autorLibro;
-  inputPrecio = precioLibro;
-  inputLink.value = linkLibro;*/
-}
 function validarCampos(){
   var codigo=document.getElementById('Codigo').value;
   var titulo=document.getElementById('Titulo').value;
