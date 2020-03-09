@@ -100,6 +100,8 @@
       <div class="modal-body">
         <h2 id="tituloModal">Libro: </h2>
         <div class="row">
+          <input type="text" class="form-control d-none" name="IdLibro" id="IdLibro" 
+          [(ngModel)] = "this.data_api.cargarLibro.IdLibro">
           <div class="col-md-6">
             <label>Codigo de libro</label>
             <input type="text" id="txtCodigo" name="txtCodigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
