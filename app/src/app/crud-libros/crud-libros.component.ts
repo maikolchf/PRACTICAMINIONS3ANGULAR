@@ -58,6 +58,7 @@ export class CrudLibrosComponent implements OnInit {
             break; 
           }
       }
+      this.listarLibros();
     });
 
 
