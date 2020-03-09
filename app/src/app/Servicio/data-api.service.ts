@@ -21,6 +21,15 @@ export class DataApiService {
     LinkAmazon: ''
   }
 
+  public cargarLibro: LibroInterface = {
+    IdLibro:null,
+    Codigo: '',
+    Titulo: '',
+    Autor: '',
+    Precio: null,
+    LinkAmazon: '' 
+  }
+
   constructor( private http:HttpClient ) { }
 
   headers:HttpHeaders = new HttpHeaders({
