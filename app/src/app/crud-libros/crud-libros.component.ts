@@ -5,8 +5,6 @@ import { Location, DOCUMENT } from '@angular/common';
 import { LibroInterface } from '../model/Libro-interface';
 import { RespuestaInterface } from '../model/Respuesta-interface';
 import { Router, CanActivate } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core';
-import { pipe } from 'rxjs';
 
 import Swal from 'sweetalert2'
 @Component({
@@ -26,7 +24,9 @@ export class CrudLibrosComponent implements OnInit {
   ngOnInit(): void {
     this.listarLibros();
   }
-
+  limpiarCampos(){
+    
+  }
   registrarLibros(LibroForm:NgForm):void{
 
     this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) =>{
@@ -62,7 +62,24 @@ export class CrudLibrosComponent implements OnInit {
     });
   }
 
-  eliminarLibros(){
+  eliminarLibros(id:number){
+    Swal.fire({
+      title: 'Quieres eliminar este Usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminalo!'
+    }).then((result) => {
+      
+      if (result.value) {
+        this.data_api.eliminarLibro(id).subscribe()
+                             
+        
+                     
+      }        
+    });       
+    /*
     switch (this.Respuesta.Estado){
       case 'success':{
         Swal.fire(
@@ -89,6 +106,7 @@ export class CrudLibrosComponent implements OnInit {
         break; 
       }
     }
+    */
   }
   
   SeleccionarLibro(libro:LibroInterface){
@@ -96,7 +114,7 @@ export class CrudLibrosComponent implements OnInit {
   }
   listarLibros(){
 
-    this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));
+    this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));    
   }
 
 

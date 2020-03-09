@@ -5,6 +5,8 @@
         <div class="row mt-2">
             <div class="col-md-4 col-sm-12">
               <div class="row">
+                <input type="text" class="form-control" name="IdLibro" id="IdLibro" 
+                [(ngModel)] = "this.data_api.seleccionarLibro.IdLibro">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
                 class="form-control" maxlength="20"  required
@@ -64,18 +66,17 @@
                         </thead>
                         <tbody id="librosTabla">
                           <tr *ngFor = "let libro of Respuesta ; index as i">
-                            <th scope="row">{{i+1}}</th>
-                            <td id="valorIdLibro" style="text-align: center; display:none;">{{libro.IdLibro}}</td>
-                            <td id="valorCodigo" style="text-align: center;">{{libro.Codigo}}</td>
-                            <td id="valorNombre" style="text-align: center;">{{libro.Nombre}}</td>
-                            <td id="valorAutor" style="text-align: center;">{{libro.Autor}}</td>
-                            <td id="valorPrecio" style="text-align: center;">{{libro.Precio}}</td> 
-                            <td id="valorLink" style="text-align: center;display:none;">{{libro.LinkAmazon}}</td>                           
+                            <th scope="row">{{libro.IdLibro}}</th>
+                            <td style="text-align: center;">{{libro.Codigo}}</td>
+                            <td style="text-align: center;">{{libro.Titulo}}</td>
+                            <td style="text-align: center;">{{libro.Autor}}</td>
+                            <td style="text-align: center;">{{libro.Precio}}</td>                            
                             <td>
-                                <button style="width: 100%;" (click)="seleccionarLibro(libro)" type="button" id="btnVer" name="btnVer" class="btn btn-warning mb-1" title="Ver detalles de libro"  data-toggle="modal" data-target="#exampleModal">
-                                  <i class="far fa-edit"></i>
-                                </button>
-                                <button style="width: 100%;" type="button" id="btnEliminar" name="btnEliminar" class="btn btn-danger" title="Eliminar libro"><i class="far fa-trash-alt"></i></button>
+                                <button style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-info mb-1" title="Ver detalles de libro"><i class="far fa-eye center"></i></button>
+                                
+                                <button style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-warning mb-1" title="Editar libro"><i class="far fa-edit"></i></button>
+                                
+                                <a (click)="eliminarLibros(libro.IdLibro)" style="width: 100%;" type="button" id="btnEliminar" name="btnEliminar" class="btn btn-danger" title="Eliminar libro"><i class="far fa-trash-alt"></i></a>
                             </td>
                           </tr>
                         </tbody>

@@ -26,8 +26,10 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
            return bllLibro.mostrarLibros();             
         }
         [HttpDelete]
-        public IHttpActionResult eliminarLibro([FromBody]LibroEtl libro)
+        public IHttpActionResult eliminarLibro(int id)
         {
+            LibroEtl libro = new LibroEtl();
+            libro.IdLibro = id;
             return Ok(bllLibro.eliminarLibro(libro));
         }
     }
