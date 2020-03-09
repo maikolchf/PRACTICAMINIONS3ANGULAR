@@ -106,7 +106,7 @@ export class CrudLibrosComponent implements OnInit {
   }
   
   SeleccionarLibro(libro:LibroInterface){
-    this.data_api.seleccionarLibro = Object.assign({},libro)
+    this.data_api.cargarLibro = Object.assign({},libro)
     console.log(libro)
   }
   listarLibros(){

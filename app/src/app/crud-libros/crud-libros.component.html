@@ -5,8 +5,6 @@
         <div class="row mt-2">
             <div class="col-md-4 col-sm-12">
               <div class="row">
-                <input type="text" class="form-control" name="IdLibro" id="IdLibro" 
-                [(ngModel)] = "this.data_api.seleccionarLibro.IdLibro">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
                 class="form-control" maxlength="20"  required
@@ -104,29 +102,29 @@
         <div class="row">
           <div class="col-md-6">
             <label>Codigo de libro</label>
-            <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
+            <input type="text" id="txtCodigo" name="txtCodigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
                 class="form-control" maxlength="20"  required
-                [(ngModel)]="this.data_api.seleccionarLibro.Codigo">
+                [(ngModel)]="this.data_api.cargarLibro.Codigo">
           </div>
           <div class="col-md-6">
             <label>Titulo de libro</label>
-            <input type="text" id="txtEditTitulo" class="form-control">
+            <input type="text" id="txtEditTitulo" class="form-control"  [(ngModel)]="this.data_api.cargarLibro.Titulo">
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="txtEditAutor">Autor</label>
-            <input type="text" id="txtEditAutor" class="form-control">
+            <input type="text" id="txtEditAutor" class="form-control" [(ngModel)]="this.data_api.cargarLibro.Autor">
           </div>
           <div class="col-md-6">
             <label for="txtEditPrecio">Precio</label>
-            <input type="text" id="txtEditPrecio" class="form-control">
+            <input type="text" id="txtEditPrecio" class="form-control" [(ngModel)]="this.data_api.cargarLibro.Precio">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <label for="txtEditLink">Link</label>
-            <input type="text" id="txtEditLink" class="form-control">
+            <input type="text" id="txtEditLink" class="form-control" [(ngModel)]="this.data_api.cargarLibro.LinkAmazon">
           </div>
         </div>
       </div>
