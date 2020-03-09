@@ -1,7 +1,7 @@
 <div class="formulario">
   <form #LibroForm = "ngForm" (ngSubmit)="registrarLibros(LibroForm)">
     <div class="container">
-        <input type="text" id="txtIdLibro" name="txtIdLibro" class="d-none">
+        <input type="text" id="IdLibro" class="d-none" name="IdLibro" [(ngModel)]="this.data_api.seleccionarLibro.IdLibro" >
         <div class="row mt-2">
             <div class="col-md-4 col-sm-12">
               <div class="row">
@@ -71,7 +71,7 @@
                             <td style="text-align: center;">{{libro.Precio}}</td>                            
                             <td>                                
                                 
-                                <button data-toggle="modal" data-target="#exampleModal" style="width: 100%;" type="button" id="btnEditar"
+                                <button style="width: 100%;" type="button" id="btnEditar"
                                  name="btnEditar" class="btn btn-warning mb-1" title="Editar libro" 
                                  (click)="SeleccionarLibro(libro)">
                                  <i class="far fa-edit"></i>                            
