@@ -73,7 +73,35 @@ export class CrudLibrosComponent implements OnInit {
     }).then((result) => {
       
       if (result.value) {
-                
+        this.data_api.eliminarLibro(id).subscribe((Respuesta2:RespuestaInterface) =>{
+          switch (Respuesta2[0]){
+            case 'success':{
+              Swal.fire(
+                Respuesta2[2],
+                '',
+                Respuesta2[0]
+              ) 
+              break; 
+            }
+            case 'error':{
+              Swal.fire(
+                Respuesta2[2],
+                '',
+                Respuesta2[0]
+              ) 
+              break; 
+            }
+            case 'warning':{
+              Swal.fire(
+                Respuesta2[2],
+                '',
+                Respuesta2[0]
+              ) 
+              break; 
+            }
+          }
+          this.listarLibros();
+        });                    
       }        
     });       
     

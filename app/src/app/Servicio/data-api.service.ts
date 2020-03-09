@@ -40,7 +40,7 @@ export class DataApiService {
 
   eliminarLibro(id:number){
     const url_api = `http://localhost:2308/api/Libros/${id}`;
-    return (this.http.delete<LibroInterface>(url_api,{headers:this.headers}))
+    return (this.http.delete(url_api,{headers:this.headers}))
     .pipe(map(data => data))
   }
 }
