@@ -4,27 +4,44 @@
         <input type="text" id="txtIdLibro" name="txtIdLibro" class="d-none">
         <div class="row mt-2">
             <div class="col-md-4 col-sm-12">
+              <div class="row">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
                 class="form-control" maxlength="20"  required
-                [(ngModel)]="this.data_api.seleccionarLibro.Codigo">
-                <label for="txtTituloLibro">Titulo del libro</label>
-                <input type="text" id="Titulo" name="Titulo" title="Titulo de libro" placeholder="Ingrese el titulo del libro..." 
-                class="form-control" maxlength="20" required
-                [(ngModel)]="this.data_api.seleccionarLibro.Titulo">
-                <label for="txtAutorLibro">Autor del libro</label>
-                <input type="text" id="Autor" name="Autor" title="Autor del libro" placeholder="Ingrese el nombre del autor del libro..." 
-                class="form-control" maxlength="20" required
-                [(ngModel)]="this.data_api.seleccionarLibro.Autor">
-                <label for="txtPrecioLibro">Precio de libro</label>
-                <input type="text" id="Precio" name="Precio" title="Precio de libro" placeholder="Ingrese precio del libro..."
-                class="form-control" maxlength="20" required
-                 [(ngModel)]="this.data_api.seleccionarLibro.Precio">
-                <label for="txtLinkAmazon">Link amazon</label>
-                <input type="text" id="LinkAmazon" name="LinkAmazon" title="Link de amazon" placeholder="Ingrese el link de amazon..." 
-                class="form-control" required
-                [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon">                    
-                <button type="submit" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
+                [(ngModel)]="this.data_api.seleccionarLibro.Codigo"  onkeypress="return validarCodigoLibro(event);">
+                <small id="alertCodigo" class="text-danger">Rellene el campo de codigo libro!</small>
+              </div>
+                <div class="row">
+                  <label for="txtTituloLibro">Titulo del libro</label>
+                  <input type="text" id="Titulo" name="Titulo" title="Titulo de libro" placeholder="Ingrese el titulo del libro..." 
+                  class="form-control" maxlength="20" required
+                  [(ngModel)]="this.data_api.seleccionarLibro.Titulo" onkeypress="return validarTituloLibro(event);">
+                  <small id="alertTitulo" class="text-danger">Rellene el campo de titulo de libro!</small>
+                </div>
+                <div class="row">
+                  <label for="txtAutorLibro">Autor del libro</label>
+                  <input type="text" id="Autor" name="Autor" title="Autor del libro" placeholder="Ingrese el nombre del autor del libro..." 
+                  class="form-control" maxlength="20" required
+                  [(ngModel)]="this.data_api.seleccionarLibro.Autor" onkeypress="return validarAutorLibro(event);">
+                  <small id="alertAutor" class="text-danger ">Rellene el campo de autor de libro!</small>
+                </div>
+                <div class="row">
+                  <label for="txtPrecioLibro">Precio de libro</label>
+                  <input type="text" id="Precio" name="Precio" title="Precio de libro" placeholder="Ingrese precio del libro..."
+                  class="form-control" maxlength="20" required
+                   [(ngModel)]="this.data_api.seleccionarLibro.Precio" onkeypress="return valideKey(event);">
+                   <small id="alertPrecio" class="text-danger ">Rellene el campo de precio de libro!</small>
+                </div>
+                <div class="row">
+                  <label for="txtLinkAmazon">Link amazon</label>
+                  <input type="text" id="LinkAmazon" name="LinkAmazon" title="Link de amazon" placeholder="Ingrese el link de amazon..." 
+                  class="form-control" required
+                  [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon" onkeypress="return validarLinkLibro(event);">  
+                  <small id="alertLink" class="text-danger">Ingrese el link del libro!</small>           
+                </div>
+                <div class="row">
+                  <button type="submit" onclick="validarCampos();" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
+                </div>       
             </div>            <div class="col-md-8 col-sm-12">
                     <label for="">Busqueda</label>
                     <div class="input-group">
@@ -67,4 +84,3 @@
         </div>
     </form>
 </div>
-
