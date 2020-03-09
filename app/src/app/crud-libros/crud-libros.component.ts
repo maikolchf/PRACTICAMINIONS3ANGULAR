@@ -16,11 +16,13 @@ import Swal from 'sweetalert2'
 })
 
 export class CrudLibrosComponent implements OnInit {
-
-  constructor( public data_api:DataApiService, private location:Location, private router:Router ) { }
   public Libro: LibroInterface;
   public Respuesta: RespuestaInterface;
-  
+  public RespuestaMensaje: RespuestaInterface;
+  constructor( public data_api:DataApiService, private location:Location, private router:Router ) { 
+
+  }
+
   ngOnInit(): void {
     this.listarLibros();
   }
@@ -58,8 +60,35 @@ export class CrudLibrosComponent implements OnInit {
     });
 
 
-
-
+/*
+    switch (this.RespuestaMensaje.Estado){
+      case 'success':{
+        Swal.fire(
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
+          'success'
+        ) 
+        break; 
+      }
+      case 'error':{
+        Swal.fire(
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
+          'error'
+        ) 
+        break; 
+      }
+      case 'warning':{
+        Swal.fire(
+          this.RespuestaMensaje.Mensaje,
+          String(this.RespuestaMensaje.ObjetoRespuesta),
+          'warning'
+        ) 
+        break; 
+      }
+    }
+    this.listarLibros();
+    */
   }
 
   eliminarLibros(){
@@ -89,7 +118,6 @@ export class CrudLibrosComponent implements OnInit {
         break; 
       }
     }
-    
   }
   listarLibros(){
 
