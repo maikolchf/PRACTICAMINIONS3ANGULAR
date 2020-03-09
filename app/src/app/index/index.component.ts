@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../Servicio/data-api.service';
+import { RespuestaInterface } from '../model/Respuesta-interface'
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  public Respuesta:RespuestaInterface;
+  constructor(private data_api:DataApiService) { }
 
   ngOnInit(): void {
+    this.listarLibros();
+  }
+  listarLibros(){
+    this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));    
   }
 
 }

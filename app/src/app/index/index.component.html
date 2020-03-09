@@ -1,8 +1,20 @@
+
 <div class="container-fluid">
     <div class="parallax"></div>
 </div>
-<div style="height:1000px;background-color:white;">
-    Scroll Up and Down this page to see the parallax scrolling effect.
-    This div is just here to enable scrolling.
-    Tip: Try to remove the background-attachment property to remove the scrolling effect.
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let libro of Respuesta">
+            <div style="height:1000px;background-color:white;">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://dummyimage.com/400x400/000/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{libro.Titulo}}</h5>
+                      <p class="card-text">{{libro.Autor}}</p>
+                      <a href="" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
 </div>
