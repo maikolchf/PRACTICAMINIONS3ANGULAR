@@ -104,33 +104,7 @@ export class CrudLibrosComponent implements OnInit {
         });                    
       }        
     });       
-    
-    switch (this.Respuesta.Estado){
-      case 'success':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'success'
-        ) 
-        break; 
-      }
-      case 'error':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'error'
-        ) 
-        break; 
-      }
-      case 'warning':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'warning'
-        ) 
-        break; 
-      }
-    }
+    this.listarLibros();
   }
   
   SeleccionarLibro(libro:LibroInterface){
