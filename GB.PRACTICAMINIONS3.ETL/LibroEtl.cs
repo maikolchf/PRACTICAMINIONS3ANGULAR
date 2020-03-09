@@ -10,7 +10,7 @@ namespace GB.PRACTICAMINIONS3.ETL
     {
         public LibroEtl()
         {
-            IdLibro = null;
+            IdLibro = int.MinValue;
             Codigo = string.Empty;
             Titulo = string.Empty;
             Autor = string.Empty;

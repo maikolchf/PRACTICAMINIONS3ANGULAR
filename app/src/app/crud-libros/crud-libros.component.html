@@ -5,6 +5,8 @@
         <div class="row mt-2">
             <div class="col-md-4 col-sm-12">
               <div class="row">
+                <input type="text" class="form-control" name="IdLibro" id="IdLibro" 
+                [(ngModel)] = "this.data_api.seleccionarLibro.IdLibro">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
                 class="form-control" maxlength="20"  required
@@ -64,9 +66,9 @@
                         </thead>
                         <tbody id="librosTabla">
                           <tr *ngFor = "let libro of Respuesta ; index as i">
-                            <th scope="row">{{i+1}}</th>
+                            <th scope="row">{{libro.IdLibro}}</th>
                             <td style="text-align: center;">{{libro.Codigo}}</td>
-                            <td style="text-align: center;">{{libro.Nombre}}</td>
+                            <td style="text-align: center;">{{libro.Titulo}}</td>
                             <td style="text-align: center;">{{libro.Autor}}</td>
                             <td style="text-align: center;">{{libro.Precio}}</td>                            
                             <td>
@@ -74,7 +76,7 @@
                                 
                                 <button style="width: 100%;" type="button" id="btnEditar" name="btnEditar" class="btn btn-warning mb-1" title="Editar libro"><i class="far fa-edit"></i></button>
                                 
-                                <button style="width: 100%;" type="button" id="btnEliminar" name="btnEliminar" class="btn btn-danger" title="Eliminar libro"><i class="far fa-trash-alt"></i></button>
+                                <a (click)="eliminarLibros(libro.IdLibro)" style="width: 100%;" type="button" id="btnEliminar" name="btnEliminar" class="btn btn-danger" title="Eliminar libro"><i class="far fa-trash-alt"></i></a>
                             </td>
                           </tr>
                         </tbody>
