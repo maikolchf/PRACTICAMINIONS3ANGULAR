@@ -28,8 +28,39 @@ export class CrudLibrosComponent implements OnInit {
   }
 
   registrarLibros(LibroForm:NgForm):void{
-    this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) => (this.RespuestaMensaje = Respuesta2));
-    console.log(this.RespuestaMensaje.Estado);
+    this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) =>{
+      console.log(Respuesta2);
+      switch (Respuesta2[0]){
+        case 'success':
+          {
+            Swal.fire(
+              Respuesta2[2],
+              '',
+              Respuesta2[0]
+            ) 
+            break; 
+          }
+          case 'error':{
+            Swal.fire(
+              Respuesta2[2],
+              '',
+              Respuesta2[0]
+            ) 
+            break; 
+          }
+          case 'warning':{
+            Swal.fire(
+              Respuesta2[2],
+              '',
+              Respuesta2[0]
+            ) 
+            break; 
+          }
+      }
+    });
+
+
+/*
     switch (this.RespuestaMensaje.Estado){
       case 'success':{
         Swal.fire(
@@ -57,37 +88,9 @@ export class CrudLibrosComponent implements OnInit {
       }
     }
     this.listarLibros();
+    */
   }
 
- /* guardarLibros(){
-    switch (this.Respuesta.Estado){
-      case 'success':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'success'
-        ) 
-        break; 
-      }
-      case 'error':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'error'
-        ) 
-        break; 
-      }
-      case 'warning':{
-        Swal.fire(
-          this.Respuesta.Mensaje,
-          String(this.Respuesta.ObjetoRespuesta),
-          'warning'
-        ) 
-        break; 
-      }
-    }
-  }*/
-  
   eliminarLibros(){
     switch (this.Respuesta.Estado){
       case 'success':{
