@@ -64,7 +64,7 @@
                         </thead>
                         <tbody id="librosTabla">
                           <tr *ngFor = "let libro of Respuesta ; index as i">
-                            <th scope="row">{{libro.IdLibro}}</th>
+                            <th scope="row">{{i+1}}</th>
                             <td style="text-align: center;">{{libro.Codigo}}</td>
                             <td style="text-align: center;">{{libro.Titulo}}</td>
                             <td style="text-align: center;">{{libro.Autor}}</td>
@@ -110,23 +110,27 @@
           </div>
           <div class="col-md-6">
             <label>Titulo de libro</label>
-            <input type="text" id="txtEditTitulo" class="form-control"  [(ngModel)]="this.data_api.cargarLibro.Titulo">
+            <input type="text" id="txtEditTitulo" class="form-control"
+            [(ngModel)]="this.data_api.seleccionarLibro.Titulo">
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <label for="txtEditAutor">Autor</label>
-            <input type="text" id="txtEditAutor" class="form-control" [(ngModel)]="this.data_api.cargarLibro.Autor">
+            <input type="text" id="txtEditAutor" class="form-control"
+            [(ngModel)]="this.data_api.seleccionarLibro.Autor">
           </div>
           <div class="col-md-6">
             <label for="txtEditPrecio">Precio</label>
-            <input type="text" id="txtEditPrecio" class="form-control" [(ngModel)]="this.data_api.cargarLibro.Precio">
+            <input type="text" id="txtEditPrecio" class="form-control"
+            [(ngModel)]="this.data_api.seleccionarLibro.Precio">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <label for="txtEditLink">Link</label>
-            <input type="text" id="txtEditLink" class="form-control" [(ngModel)]="this.data_api.cargarLibro.LinkAmazon">
+            <input type="text" id="txtEditLink" class="form-control"
+            [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon">
           </div>
         </div>
       </div>
