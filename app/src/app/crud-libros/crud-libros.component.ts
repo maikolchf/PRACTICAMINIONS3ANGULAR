@@ -60,37 +60,6 @@ export class CrudLibrosComponent implements OnInit {
       }
       this.listarLibros();
     });
-
-
-/*
-    switch (this.RespuestaMensaje.Estado){
-      case 'success':{
-        Swal.fire(
-          this.RespuestaMensaje.Mensaje,
-          String(this.RespuestaMensaje.ObjetoRespuesta),
-          'success'
-        ) 
-        break; 
-      }
-      case 'error':{
-        Swal.fire(
-          this.RespuestaMensaje.Mensaje,
-          String(this.RespuestaMensaje.ObjetoRespuesta),
-          'error'
-        ) 
-        break; 
-      }
-      case 'warning':{
-        Swal.fire(
-          this.RespuestaMensaje.Mensaje,
-          String(this.RespuestaMensaje.ObjetoRespuesta),
-          'warning'
-        ) 
-        break; 
-      }
-    }
-    this.listarLibros();
-    */
   }
 
   eliminarLibros(){
@@ -120,6 +89,10 @@ export class CrudLibrosComponent implements OnInit {
         break; 
       }
     }
+  }
+  
+  SeleccionarLibro(libro:LibroInterface){
+    this.data_api.seleccionarLibro = Object.assign({},libro)
   }
   listarLibros(){
 
