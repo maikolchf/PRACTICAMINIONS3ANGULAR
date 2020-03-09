@@ -108,6 +108,10 @@ export class CrudLibrosComponent implements OnInit {
     }
     */
   }
+  
+  SeleccionarLibro(libro:LibroInterface){
+    this.data_api.seleccionarLibro = Object.assign({},libro)
+  }
   listarLibros(){
 
     this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));    
