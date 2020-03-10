@@ -1,9 +1,9 @@
 <div class="formulario">
   <form #LibroForm = "ngForm" (ngSubmit)="registrarLibros(LibroForm);LibroForm.reset()">
-    <div class="container">
+    <div class="container card">
         <input type="text" id="IdLibro" class="d-none" name="IdLibro" [(ngModel)]="this.data_api.seleccionarLibro.IdLibro" >
-        <div class="row mt-2">
-            <div class="col-md-4 col-sm-12">
+        <div class="row mt-4 mb-4">
+            <div class="col-md-3 col-sm-12 ml-3">
               <div class="row">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
