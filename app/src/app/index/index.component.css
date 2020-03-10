@@ -16,3 +16,11 @@
   height: 120px;
   border-radius: 10%;   
 }
+.bg-transparent{
+   background-color:rgba(1,1,1,0.5) !important;
+   z-index: 1;
+}
+.card:hover{
+  border-color: rgb(42, 104, 219);
+  cursor: pointer;
+}
