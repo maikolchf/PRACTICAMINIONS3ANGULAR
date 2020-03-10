@@ -7,4 +7,5 @@ export interface LibroInterface{
     Autor?: string,
     Precio?: DecimalPipe,
     LinkAmazon?: string
+    Imagen?: ImageData
 }

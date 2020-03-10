@@ -7,6 +7,7 @@ import { RespuestaInterface } from '../model/Respuesta-interface';
 import { Router, CanActivate } from '@angular/router';
 
 import Swal from 'sweetalert2'
+import { ReadVarExpr } from '@angular/compiler';
 @Component({
   selector: 'app-crud-libros',
   templateUrl: './crud-libros.component.html',
@@ -17,6 +18,7 @@ export class CrudLibrosComponent implements OnInit {
   public Libro: LibroInterface;
   public Respuesta: RespuestaInterface;
   public RespuestaMensaje: RespuestaInterface;
+  public imagen = null;
   constructor( public data_api:DataApiService, private location:Location, private router:Router ) { 
 
   }
@@ -24,11 +26,17 @@ export class CrudLibrosComponent implements OnInit {
   ngOnInit(): void {
     this.listarLibros();
   }
-  limpiarCampos(){
-    
-  }
-  registrarLibros(LibroForm:NgForm):void{
 
+  subirImg(img){ 
+    this.imagen = img.item(0);    
+  }
+  registrarLibros(LibroForm:NgForm):void{ 
+    
+    const uploadData = new FormData();
+    LibroForm.value.imagen = this.imagen;
+    console.log(this.imagen);
+    console.log(LibroForm.value);
+/*
     this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) =>{
       console.log(Respuesta2);
       switch (Respuesta2[0]){
@@ -59,7 +67,7 @@ export class CrudLibrosComponent implements OnInit {
           }
       }
       this.listarLibros();
-    });
+    });*/
   }
 
   eliminarLibros(id:number){
@@ -115,6 +123,4 @@ export class CrudLibrosComponent implements OnInit {
 
     this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));    
   }
-
-
 }

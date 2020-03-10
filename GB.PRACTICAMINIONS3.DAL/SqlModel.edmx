@@ -15,6 +15,7 @@
           <Property Name="Autor" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Precio" Type="money" Nullable="false" />
           <Property Name="LinkAmazon" Type="varchar(max)" Nullable="false" />
+          <Property Name="Imagen" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="FV_Calculo_Comision_Empleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
@@ -100,6 +101,7 @@
           <Parameter Name="pvAutor" Type="varchar" Mode="In" />
           <Parameter Name="pvPrecio" Type="money" Mode="In" />
           <Parameter Name="pvLink" Type="varchar(max)" Mode="In" />
+          <Parameter Name="pvImagen" Type="varchar(max)" Mode="In" />
           <Parameter Name="piCodigo" Type="int" Mode="InOut" />
           <Parameter Name="psMensaje" Type="varchar" Mode="InOut" />
         </Function>
@@ -207,6 +209,7 @@
           <Property Name="Autor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="LinkAmazon" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="BCR_PRACTICAMINIONS3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Libros" EntityType="Self.Libros" />
@@ -221,6 +224,7 @@
             <Parameter Name="pvAutor" Mode="In" Type="String" />
             <Parameter Name="pvPrecio" Mode="In" Type="Decimal" />
             <Parameter Name="pvLink" Mode="In" Type="String" />
+            <Parameter Name="pvImagen" Mode="In" Type="String" />
             <Parameter Name="piCodigo" Mode="InOut" Type="Int32" />
             <Parameter Name="psMensaje" Mode="InOut" Type="String" />
           </FunctionImport>
@@ -332,6 +336,7 @@
           <EntitySetMapping Name="Libros">
             <EntityTypeMapping TypeName="BCR_PRACTICAMINIONS3Model.Libros">
               <MappingFragment StoreEntitySet="Libros">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />

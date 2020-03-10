@@ -16,8 +16,7 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         LibroBll bllLibro = new LibroBll();
         [HttpPost]
         public IHttpActionResult agregarLibro([FromBody]LibroEtl libro)
-        {
-            var prueba = libro.IdLibro;
+        {      
             return Ok(bllLibro.insertarLibro(libro)); 
         }
 
@@ -29,8 +28,10 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         [HttpDelete]
         public IHttpActionResult eliminarLibro(int id)
         {
+            string image = null;
             LibroEtl libro = new LibroEtl();
             libro.IdLibro = id;
+
             return Ok(bllLibro.eliminarLibro(libro));
         }
     }

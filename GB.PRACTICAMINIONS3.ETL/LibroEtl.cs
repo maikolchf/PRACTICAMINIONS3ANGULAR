@@ -16,6 +16,7 @@ namespace GB.PRACTICAMINIONS3.ETL
             Autor = string.Empty;
             Precio =decimal.MinValue;
             LinkAmazon = string.Empty;
+            Imagen = string.Empty;
         }
 
         public int? IdLibro { get; set; }
@@ -24,5 +25,6 @@ namespace GB.PRACTICAMINIONS3.ETL
         public string Autor { get; set; }
         public decimal Precio { get; set; }
         public string LinkAmazon { get; set; }
+        public string  Imagen { get; set; }
     }
 }

@@ -27,7 +27,8 @@ export class DataApiService {
     Titulo: '',
     Autor: '',
     Precio: null,
-    LinkAmazon: '' 
+    LinkAmazon: '' ,
+    Imagen: null
   }
 
   constructor( private http:HttpClient ) { }

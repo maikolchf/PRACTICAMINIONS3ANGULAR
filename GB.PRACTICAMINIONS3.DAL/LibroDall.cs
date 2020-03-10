@@ -43,6 +43,7 @@ namespace GB.PRACTICAMINIONS3.DAL
                             libro.Autor,
                             libro.Precio,
                             libro.LinkAmazon,
+                            libro.Imagen,
                             Codigo,
                             Mensaje
                         );

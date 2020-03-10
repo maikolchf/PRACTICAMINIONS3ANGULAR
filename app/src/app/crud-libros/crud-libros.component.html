@@ -40,8 +40,17 @@
                   <small id="alertLink" class="text-danger">Ingrese el link del libro!</small>           
                 </div>
                 <div class="row">
+                  <label for="txtLinkAmazon">Subir imagen:</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <input type="file" id="imagen" name="imagen" [(ngModel)]="this.data_api.seleccionarLibro.Imagen" 
+                      accept=".png, .jpg" (change)="subirImg($event.target.files)" >
+                    </div>                   
+                  </div>                  
+                </div> 
+                <div class="row">
                   <button type="submit" onclick="validarCampos();" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
-                </div>       
+                </div>                      
             </div>            <div class="col-md-8 col-sm-12">
                     <label for="">Busqueda</label>
                     <div class="input-group">
@@ -85,59 +94,4 @@
             </div>
         </div>
     </form>
-</div>
-
-<!-- Modalx<x<z -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h2 id="tituloModal">Libro: </h2>
-        <div class="row">
-          <input type="text" class="form-control d-none" name="IdLibro" id="IdLibro" 
-          [(ngModel)] = "this.data_api.cargarLibro.IdLibro">
-          <div class="col-md-6">
-            <label>Codigo de libro</label>
-            <input type="text" id="txtCodigo" name="txtCodigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
-                class="form-control" maxlength="20"  required
-                [(ngModel)]="this.data_api.cargarLibro.Codigo">
-          </div>
-          <div class="col-md-6">
-            <label>Titulo de libro</label>
-            <input type="text" id="txtEditTitulo" class="form-control"
-            [(ngModel)]="this.data_api.cargarLibro.Titulo">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label for="txtEditAutor">Autor</label>
-            <input type="text" id="txtEditAutor" class="form-control"
-            [(ngModel)]="this.data_api.cargarLibro.Autor">
-          </div>
-          <div class="col-md-6">
-            <label for="txtEditPrecio">Precio</label>
-            <input type="text" id="txtEditPrecio" class="form-control"
-            [(ngModel)]="this.data_api.cargarLibro.Precio">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label for="txtEditLink">Link</label>
-            <input type="text" id="txtEditLink" class="form-control"
-            [(ngModel)]="this.data_api.cargarLibro.LinkAmazon">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
-      </div>
-    </div>
-  </div>
 </div>

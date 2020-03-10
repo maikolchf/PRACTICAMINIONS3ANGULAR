@@ -20,5 +20,6 @@ namespace GB.PRACTICAMINIONS3.DAL
         public string Autor { get; set; }
         public decimal Precio { get; set; }
         public string LinkAmazon { get; set; }
+        public string Imagen { get; set; }
     }
 }

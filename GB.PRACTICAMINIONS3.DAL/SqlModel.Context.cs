@@ -38,7 +38,7 @@ namespace GB.PRACTICAMINIONS3.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_EliminarLibro", piIdLibroParameter, piCodigo, psMensaje);
         }
     
-        public virtual int PR_InsertarLibros(string piCodigoLibro, string pvNombre, string pvAutor, Nullable<decimal> pvPrecio, string pvLink, ObjectParameter piCodigo, ObjectParameter psMensaje)
+        public virtual int PR_InsertarLibros(string piCodigoLibro, string pvNombre, string pvAutor, Nullable<decimal> pvPrecio, string pvLink, string pvImagen, ObjectParameter piCodigo, ObjectParameter psMensaje)
         {
             var piCodigoLibroParameter = piCodigoLibro != null ?
                 new ObjectParameter("piCodigoLibro", piCodigoLibro) :
@@ -60,7 +60,11 @@ namespace GB.PRACTICAMINIONS3.DAL
                 new ObjectParameter("pvLink", pvLink) :
                 new ObjectParameter("pvLink", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_InsertarLibros", piCodigoLibroParameter, pvNombreParameter, pvAutorParameter, pvPrecioParameter, pvLinkParameter, piCodigo, psMensaje);
+            var pvImagenParameter = pvImagen != null ?
+                new ObjectParameter("pvImagen", pvImagen) :
+                new ObjectParameter("pvImagen", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PR_InsertarLibros", piCodigoLibroParameter, pvNombreParameter, pvAutorParameter, pvPrecioParameter, pvLinkParameter, pvImagenParameter, piCodigo, psMensaje);
         }
     
         public virtual ObjectResult<PR_MostrarLibros_Result> PR_MostrarLibros()
