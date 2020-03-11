@@ -18,7 +18,7 @@ namespace GB.PRACTICAMINIONS3.BLL
         {
             if (libro.IdLibro == null) {
                 if (string.IsNullOrEmpty(libro.Codigo) || string.IsNullOrEmpty(libro.Titulo)
-                || string.IsNullOrEmpty(libro.Precio.ToString()) || string.IsNullOrEmpty(libro.LinkAmazon) || string.IsNullOrEmpty(libro.Autor))
+                || string.IsNullOrEmpty(libro.Precio.ToString()) || string.IsNullOrEmpty(libro.LinkAmazon) || string.IsNullOrEmpty(libro.Autor) || string.IsNullOrEmpty(libro.Imagen))
                 {
                     objMensaje.Codigo = -2;
                     objMensaje.Mensaje = "Rellene todos los campos";

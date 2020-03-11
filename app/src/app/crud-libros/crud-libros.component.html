@@ -3,7 +3,7 @@
     <div class="container card">
         <input type="text" id="IdLibro" class="d-none" name="IdLibro" [(ngModel)]="this.data_api.seleccionarLibro.IdLibro" >
         <div class="row mt-4 mb-4">
-            <div class="col-md-3 col-sm-12 ml-3">
+            <div class="col-md-3 col-sm-16 ml-3 mr-3">
               <div class="row">
                 <label for="txtCodigoLibro">Codigo de libro</label>
                 <input type="text" id="Codigo" name="Codigo" title="Codigo de libro" placeholder="Ingrese el codigo del libro..." 
@@ -35,18 +35,20 @@
                 <div class="row">
                   <label for="txtLinkAmazon">Link amazon</label>
                   <input type="text" id="LinkAmazon" name="LinkAmazon" title="Link de amazon" placeholder="Ingrese el link de amazon..." 
-                  class="form-control" required
+                  class="form-control mb-3" required
                   [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon" onkeypress="return validarLinkLibro(event);">  
                   <small id="alertLink" class="text-danger">Ingrese el link del libro!</small>           
                 </div>
-                <div class="row border border-dark mt-3">
-                  <img src="/assets/book-image.png" id="img" alt="">
+                <div class="my-row row card shadow p-3 mb-2 bg-white rounded text-center"> 
+                  <p>
+                    <img  src="../../assets/book-image.png" id="img" alt="">
+                  </p>                                              
                 </div>
                 <div class="row">
                   <label for="txtLinkAmazon">Subir imagen:</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <input type="file" id="file" name="imagen" [(ngModel)]="this.data_api.seleccionarLibro.Imagen" 
+                      <input type="file" id="imagen" name="imagen" [(ngModel)]="this.data_api.seleccionarLibro.imagen" 
                       accept=".png, .jpg" onchange="mostrar()" (change)="subirImg($event.target)" >
                     </div>                   
                   </div>                  
@@ -54,7 +56,8 @@
                 <div class="row">
                   <button type="submit" onclick="validarCampos();" title="Guardar"class="btn btn-primary mb-2 mt-2">Guardar</button>
                 </div>                      
-            </div>            <div class="col-md-8 col-sm-12">
+            </div>            
+            <div class="my-col col-md-8 col-sm-12">
                     <label for="">Busqueda</label>
                     <div class="input-group">
                         <div class="input-group-prepend">

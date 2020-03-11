@@ -3,3 +3,14 @@
     margin-top: 10%;
     margin-bottom: 10%;
 }
+
+.my-row img{   
+    width: 200px;  
+    height: 200px; 
+    border-radius: 5%;  
+}
+.my-col{
+    width: 100%;
+    height: 650px;
+    overflow: scroll;
+}

@@ -32,12 +32,8 @@ export class CrudLibrosComponent implements OnInit {
   }
   registrarLibros(LibroForm:NgForm):void{ 
     
-    const uploadData = new FormData();
-    LibroForm.value.imagen = this.imagen;
-    console.log(this.imagen);
+    const uploadData = new FormData();    
     console.log(LibroForm.value);
-
-/*
     this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) =>{
       console.log(Respuesta2);
       switch (Respuesta2[0]){
@@ -68,7 +64,7 @@ export class CrudLibrosComponent implements OnInit {
           }
       }
       this.listarLibros();
-    });*/
+    });
   }
 
   eliminarLibros(id:number){
