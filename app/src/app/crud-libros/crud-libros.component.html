@@ -1,5 +1,5 @@
 <div class="formulario">
-  <form #LibroForm = "ngForm" (ngSubmit)="registrarLibros(LibroForm);LibroForm.reset()">
+  <form #LibroForm = "ngForm" (ngSubmit)="registrarLibros(LibroForm);LibroForm.reset()" enctype="multipart/form-data">
     <div class="container card">
         <input type="text" id="IdLibro" class="d-none" name="IdLibro" [(ngModel)]="this.data_api.seleccionarLibro.IdLibro" >
         <div class="row mt-4 mb-4">
@@ -38,6 +38,9 @@
                   class="form-control" required
                   [(ngModel)]="this.data_api.seleccionarLibro.LinkAmazon" onkeypress="return validarLinkLibro(event);">  
                   <small id="alertLink" class="text-danger">Ingrese el link del libro!</small>           
+                </div>
+                <div class="row border border-dark mt-3">
+                  <img src="/assets/book-image.png" id="img" alt="">
                 </div>
                 <div class="row">
                   <label for="txtLinkAmazon">Subir imagen:</label>
