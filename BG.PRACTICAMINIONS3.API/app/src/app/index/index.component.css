@@ -24,3 +24,9 @@
   border-color: rgb(42, 104, 219);
   cursor: pointer;
 }
+
+.card-img-top{
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;   
+}

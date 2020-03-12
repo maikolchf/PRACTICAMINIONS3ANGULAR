@@ -19,7 +19,7 @@ export class DataApiService {
     Autor: '',
     Precio: null,
     LinkAmazon: '',
-    imagen: null
+    Imagen: null
   }
 
   public cargarLibro: LibroInterface = {
@@ -29,7 +29,7 @@ export class DataApiService {
     Autor: '',
     Precio: null,
     LinkAmazon: '' ,
-    imagen: null
+    Imagen: null
   }
 
   constructor( private http:HttpClient ) { }
