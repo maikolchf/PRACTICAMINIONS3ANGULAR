@@ -6,6 +6,6 @@ export interface LibroInterface{
     Titulo?: string,
     Autor?: string,
     Precio?: DecimalPipe,
-    LinkAmazon?: string
-    imagen?: string
+    LinkAmazon?: string,
+    imagen?:  FormData
 }

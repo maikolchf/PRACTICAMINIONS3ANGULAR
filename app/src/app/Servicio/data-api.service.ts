@@ -19,7 +19,7 @@ export class DataApiService {
     Autor: '',
     Precio: null,
     LinkAmazon: '',
-    imagen: ''
+    imagen: null
   }
 
   public cargarLibro: LibroInterface = {
@@ -29,7 +29,7 @@ export class DataApiService {
     Autor: '',
     Precio: null,
     LinkAmazon: '' ,
-    imagen: ''
+    imagen: null
   }
 
   constructor( private http:HttpClient ) { }
@@ -43,9 +43,9 @@ export class DataApiService {
     return this.http.get(url_api);
   }
 
-  insertarLibro(libro: LibroInterface){    
+  insertarLibro(libro:FormData){    
     const url_api = 'http://localhost:2308/api/Libros';
-    return (this.http.post(url_api, libro,{ headers:this.headers}))
+    return (this.http.post(url_api,libro))
     .pipe(map(data => data));
   }
 

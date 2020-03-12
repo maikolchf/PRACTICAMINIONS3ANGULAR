@@ -8,6 +8,7 @@ import { Router, CanActivate } from '@angular/router';
 
 import Swal from 'sweetalert2'
 import { ReadVarExpr } from '@angular/compiler';
+import { ifStmt } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-crud-libros',
   templateUrl: './crud-libros.component.html',
@@ -15,10 +16,14 @@ import { ReadVarExpr } from '@angular/compiler';
 })
 
 export class CrudLibrosComponent implements OnInit {
-  public Libro: LibroInterface;
+  public Libro: LibroInterface = {
+    IdLibro: null,
+    Codigo: ''
+  };
   public Respuesta: RespuestaInterface;
   public RespuestaMensaje: RespuestaInterface;
   public imagen = null;
+  public file:File;
   constructor( public data_api:DataApiService, private location:Location, private router:Router ) { 
 
   }
@@ -27,14 +32,25 @@ export class CrudLibrosComponent implements OnInit {
     this.listarLibros();
   }
 
-  subirImg(img){   
-    console.log(img.files[0]);   
+  subirImg(img:FileList){     
+    this.file = img.item(0);  
+    console.log(this.file); 
   }
   registrarLibros(LibroForm:NgForm):void{ 
     
-    const uploadData = new FormData();    
-    console.log(LibroForm.value);
-    this.data_api.insertarLibro(LibroForm.value).subscribe((Respuesta2:RespuestaInterface) =>{
+    const uploadData = new FormData();       
+    const formData: FormData = new FormData();
+    formData.append('IdLibro', LibroForm.value.IdLibro);
+    formData.append('Codigo', LibroForm.value.Codigo);
+    formData.append('Titulo', LibroForm.value.Titulo);
+    formData.append('Autor', LibroForm.value.Autor);
+    formData.append('Precio', LibroForm.value.Precio);
+    formData.append('LinkAmazon', LibroForm.value.LinkAmazon);
+    formData.append('Imagen',this.file, this.file.name);
+
+    console.log(formData);    
+
+    this.data_api.insertarLibro(formData).subscribe((Respuesta2:RespuestaInterface) =>{
       console.log(Respuesta2);
       switch (Respuesta2[0]){
         case 'success':
@@ -64,7 +80,7 @@ export class CrudLibrosComponent implements OnInit {
           }
       }
       this.listarLibros();
-    });
+    }); 
   }
 
   eliminarLibros(id:number){

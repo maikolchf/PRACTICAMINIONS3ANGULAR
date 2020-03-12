@@ -48,8 +48,8 @@
                   <label for="txtLinkAmazon">Subir imagen:</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <input type="file" id="imagen" name="imagen" [(ngModel)]="this.data_api.seleccionarLibro.imagen" 
-                      accept=".png, .jpg" onchange="mostrar()" (change)="subirImg($event.target)" >
+                      <input type="file" id="imagen" name="imagen" 
+                      accept=".png, .jpg" onchange="mostrar()" (change)="subirImg($event.target.files)" >
                     </div>                   
                   </div>                  
                 </div> 

@@ -25,6 +25,6 @@ namespace GB.PRACTICAMINIONS3.ETL
         public string Autor { get; set; }
         public decimal Precio { get; set; }
         public string LinkAmazon { get; set; }
-        public string  Imagen { get; set; }
+        public string Imagen { get; set; }
     }
 }
