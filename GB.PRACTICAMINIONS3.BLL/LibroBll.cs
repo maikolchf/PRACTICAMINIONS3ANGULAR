@@ -21,7 +21,7 @@ namespace GB.PRACTICAMINIONS3.BLL
                 || string.IsNullOrEmpty(libro.Precio.ToString()) || string.IsNullOrEmpty(libro.LinkAmazon) || string.IsNullOrEmpty(libro.Autor) || string.IsNullOrEmpty(libro.Imagen))
                 {
                     objMensaje.Codigo = -2;
-                    objMensaje.Mensaje = "Rellene todos los campos";
+                    objMensaje.Mensaje = "Rellene todos los campos!";
                     objMensaje.Estado = "warning";
                 }
                 else
