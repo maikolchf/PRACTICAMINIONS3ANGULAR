@@ -39,13 +39,14 @@
 <!--<div class="container-fluid">
     <div class="parallax img-fluid"></div>
 </div>-->
+{{Respuesta | json}}
 <div class="container">
     <div class="row mb-4">
         <div class="my-col col-xs-3 col-sm-12 col-md-3 mt-3" *ngFor="let libro of Respuesta">
             <div class="my-card ">
                 <div class="card shadow p-3 mb-5 bg-white rounded text-center" style="background-color: #F2F4F6;">
                     <p>
-                        <img class="card-img-top" src="http://localhost:2308/img/unnamed204324711.jpg" alt="Card image cap">
+                        <img class="card-img-top" src={{libro.Imagen}} alt="Card image cap">
                     </p>                    
                     <div class="card-body">
                       <h5 class="card-title">{{libro.Titulo}}</h5>

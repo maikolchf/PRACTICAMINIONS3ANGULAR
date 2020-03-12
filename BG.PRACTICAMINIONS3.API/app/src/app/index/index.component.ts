@@ -10,6 +10,7 @@ import { LibroInterface } from '../model/Libro-interface';
 })
 export class IndexComponent implements OnInit {
 
+
   public Respuesta:RespuestaInterface;
   public Libro: LibroInterface;
   constructor(public data_api:DataApiService) { }
@@ -18,7 +19,8 @@ export class IndexComponent implements OnInit {
     this.listarLibros();
   }
   listarLibros(){
-    this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));    
+    this.data_api.mostrarLibros().subscribe((Respuesta:RespuestaInterface) => (this.Respuesta = Respuesta));
+       
   }
   SeleccionarLibro(libro:LibroInterface){
     this.data_api.seleccionarLibro = Object.assign({},libro)
