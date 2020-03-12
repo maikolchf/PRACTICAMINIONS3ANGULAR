@@ -22,7 +22,6 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
         {
             string imagen = null;
             var httpRequest = HttpContext.Current.Request;
-            Console.WriteLine("dddddddddddddddddddddd" + httpRequest);
 
             var postedFile = httpRequest.Files["Imagen"];
             var IdLibro = httpRequest.Form["IdLibro"];
@@ -34,7 +33,9 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
 
             imagen = new string(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             imagen = imagen + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
-            var filePath = HttpContext.Current.Server.MapPath("~/~/app/src/assets/img/" + imagen);
+            var direccion = HttpContext.Current.Request.Url.Authority;
+            var direccionImg = ("http://" + direccion+"/img/" + imagen);
+            var filePath = HttpContext.Current.Server.MapPath("~/img/" + imagen);
             postedFile.SaveAs(filePath);
             LibroEtl libro = new LibroEtl();
             if(IdLibro == "null")
@@ -44,7 +45,7 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
                 libro.Autor = Convert.ToString(Autor);
                 libro.Precio = Convert.ToDecimal(Precio);
                 libro.LinkAmazon = Convert.ToString(LinkAmazon);
-                libro.Imagen = filePath;
+                libro.Imagen = direccionImg;
             }
             else
             {
