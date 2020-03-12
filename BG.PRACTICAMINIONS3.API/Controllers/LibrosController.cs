@@ -34,7 +34,7 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
 
             imagen = new string(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             imagen = imagen + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
-            var filePath = HttpContext.Current.Server.MapPath("~/img/" + imagen);
+            var filePath = HttpContext.Current.Server.MapPath("~/~/app/src/assets/img/" + imagen);
             postedFile.SaveAs(filePath);
             LibroEtl libro = new LibroEtl();
             if(IdLibro == "null")

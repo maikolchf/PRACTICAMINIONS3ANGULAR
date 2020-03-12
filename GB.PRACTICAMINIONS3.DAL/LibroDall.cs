@@ -87,10 +87,13 @@ namespace GB.PRACTICAMINIONS3.DAL
                                             Titulo = q.Nombre,
                                             Autor = q.Autor,
                                             Precio = q.Precio,
-                                            LinkAmazon = q.LinkAmazon
+                                            LinkAmazon = q.LinkAmazon,
+                                            Imagen = q.Imagen.Replace(@"\\" , @"\")
                                         }).ToList();
+                Console.WriteLine(libro);
                 return libro;
             }
+
         }
 
         public RespuestaEtl mostraLibros()

@@ -34,7 +34,6 @@ export class CrudLibrosComponent implements OnInit {
 
   subirImg(img:FileList){     
     this.file = img.item(0);  
-    console.log(this.file); 
   }
   registrarLibros(LibroForm:NgForm):void{ 
     
@@ -46,9 +45,7 @@ export class CrudLibrosComponent implements OnInit {
     formData.append('Autor', LibroForm.value.Autor);
     formData.append('Precio', LibroForm.value.Precio);
     formData.append('LinkAmazon', LibroForm.value.LinkAmazon);
-    formData.append('Imagen',this.file, this.file.name);
-
-    console.log(formData);    
+    formData.append('Imagen',this.file, this.file.name); 
 
     this.data_api.insertarLibro(formData).subscribe((Respuesta2:RespuestaInterface) =>{
       console.log(Respuesta2);
