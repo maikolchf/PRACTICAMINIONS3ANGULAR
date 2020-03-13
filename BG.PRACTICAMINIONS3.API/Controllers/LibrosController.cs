@@ -62,12 +62,6 @@ namespace BG.PRACTICAMINIONS3.API.Controllers
             return Request.CreateResponse(bllLibro.insertarLibro(libro));
         }
 
-        //public IHttpActionResult agregarLibro([FromBody]LibroEtl libro, HttpPostedFileBase fileUpload)
-        //{
-
-        //    return Ok(bllLibro.insertarLibro(libro)); 
-        //}
-
         [HttpGet]
         public List<LibroEtl> mostrarLibros()
         {
