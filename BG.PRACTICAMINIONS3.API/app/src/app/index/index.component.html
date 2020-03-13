@@ -40,22 +40,24 @@
     <div class="parallax img-fluid"></div>
 </div>-->
 <div class="container">
+  <div class="libro mx-auto">
     <div class="row mb-4">
-        <div class="my-col col-xs-3 col-sm-12 col-md-3 mt-3" *ngFor="let libro of Respuesta">
-            <div class="my-card ">
-                <div class="card shadow p-3 mb-5 bg-white rounded text-center" style="background-color: #F2F4F6;">
-                    <p>
-                        <img class="card-img-top" src={{libro.Imagen}} alt="Card image cap">
-                    </p>                    
-                    <div class="card-body">
-                      <h5 class="card-title">{{libro.Titulo}}</h5>
-                      <p class="card-text">{{libro.Autor}}</p>
-                      <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="SeleccionarLibro(libro)">Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>        
-    </div>
+      <div class="my-col col-xs-3 col-sm-12 col-md-3 mt-3 mx-auto " *ngFor="let libro of Respuesta">
+          <div class="my-card ">
+              <div class="card shadow p-3 mb-5 bg-white rounded text-center" style="background-color: #F2F4F6;">
+                  <p>
+                      <img class="card-img-top" src={{libro.Imagen}} alt="Card image cap">
+                  </p>                    
+                  <div class="card-body">
+                    <h5 class="card-title">{{libro.Titulo}}</h5>
+                    <p class="card-text">{{libro.Autor}}</p>
+                    <a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="SeleccionarLibro(libro)">Comprar</a>
+                  </div>
+              </div>
+          </div>
+      </div>        
+  </div>
+  </div>   
 </div>
 
   <!-- Modal -->
